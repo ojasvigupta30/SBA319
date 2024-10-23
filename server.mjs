@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import connectDB from './db/conn.mjs';
 
 
 
@@ -12,7 +13,7 @@ dotenv.config();
 let PORT = process.env.PORT || 3001;
 
 //Database Connection
-
+connectDB();
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
