@@ -5,8 +5,6 @@ import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
 
 
-
-
 //Setups
 const app = express();
 dotenv.config();
