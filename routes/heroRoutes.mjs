@@ -10,7 +10,7 @@ const router = express.Router();
 
 //READ
 router.get(`/`, (reqs, resp)=>{
-    resp.send(`Testing`);
+    resp.send(`Hero Testing`);
 })
 
 

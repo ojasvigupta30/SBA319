@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import connectDB from './db/conn.mjs';
 import heroRoutes from './routes/heroRoutes.mjs';
+import villainRoutes from './routes/villainRoutes.mjs';
+import battleRoutes from './routes/battleRoutes.mjs';
 
 
 //Setups
@@ -20,7 +22,9 @@ app.use(bodyParser.json({ extended: true }));
 
 
 //Routes
-app.use(`/`, heroRoutes);
+app.use(`/hero`, heroRoutes);
+app.use(`/villain`, villainRoutes);
+app.use(`/battle`, battleRoutes);
 
 
 //Listener

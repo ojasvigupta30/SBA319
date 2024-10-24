@@ -23,5 +23,4 @@ const battleSchema = new mongoose.Schema({
 });
 
 
-
 export default mongoose.model(`Battle`, battleSchema);
