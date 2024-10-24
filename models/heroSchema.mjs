@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const countrySchema = new mongoose.Schema({
+const heroSchema = new mongoose.Schema({
     name: { // Hero's name
         type: String, 
         required: true 
