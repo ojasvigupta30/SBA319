@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const battleSchema = new mongoose.Schema({
     location: { // Battle location
         type: String, 
-        required: true 
+        required: [true, `Location is required`] 
     },  
   date: { // Date of the battle
     type: Date, 
@@ -18,10 +18,12 @@ const battleSchema = new mongoose.Schema({
   outcome: { // Outcome of the battle
     type: String, 
     enum: ['Heroes won', 'Villains won'], 
-    required: true 
+    required: [true, `Outcome is required`] 
 },
 universe: { //Store the universe
-  type: String
+  type: String,
+  enum: [`Marvel`, `DC`],
+  required: [true, `Universe is required`]
 } 
 });
 
