@@ -19,7 +19,10 @@ const battleSchema = new mongoose.Schema({
     type: String, 
     enum: ['Heroes won', 'Villains won'], 
     required: true 
-}  
+},
+universe: { //Store the universe
+  type: String
+} 
 });
 
 

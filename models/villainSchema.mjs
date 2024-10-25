@@ -16,6 +16,9 @@ const villainSchema = new mongoose.Schema({
 },  
   archNemesis: { // Store Hero's name or alias as a simple string reference
     type: String
+},
+universe: { //Store the universe
+  type: String
 }
     
 });
