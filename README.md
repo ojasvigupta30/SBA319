@@ -95,6 +95,8 @@ This project is a Superhero Battle Management system built using **Node.js**, **
 
 | **Route**               | **Method** | **Description**                                    | **Required Fields**                                         |
 |-------------------------|------------|----------------------------------------------------|-------------------------------------------------------------|
+
+
 | `/hero`                 | GET        | Get all heroes                                     | None                                                        |
 | `/hero`                 | POST       | Add a new hero                                     | `alias`, `power`, `universe`                                 |
 | `/hero/:alias`          | PUT        | Update an existing hero by alias                   | `alias`, `power`, `universe` (in request body)               |
@@ -119,7 +121,7 @@ Example seed data for heroes, villains, and battles is included in the project. 
 
 ## Usage
 
-After starting the server, you can interact with the API using tools like **Postman** or **cURL**. Here's an example of adding a new hero using Postman:
+After starting the server, you can interact with the API using tools like **Postman** or **ThunderClient**. Here's an example of adding a new hero using Postman:
 
 - **POST /hero**
 
