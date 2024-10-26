@@ -13,9 +13,10 @@ const router = express.Router();
 router.get(`/seed`, async (reqs, resp)=>{
 
     //Optional step to erase the database first
-    // await Hero.deleteMany({});
-    // await Villain.deleteMany({});
-    // await Battle.deleteMany({});
+    await Battle.deleteMany({});
+    await Hero.deleteMany({});
+    await Villain.deleteMany({});
+    
 
     //create items in database
 await Hero.create(heroes);
