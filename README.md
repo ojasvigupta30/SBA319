@@ -95,8 +95,6 @@ This project is a Superhero Battle Management system built using **Node.js**, **
 
 | **Route**               | **Method** | **Description**                                    | **Required Fields**                                         |
 |-------------------------|------------|----------------------------------------------------|-------------------------------------------------------------|
-
-
 | `/hero`                 | GET        | Get all heroes                                     | None                                                        |
 | `/hero`                 | POST       | Add a new hero                                     | `alias`, `power`, `universe`                                 |
 | `/hero/:alias`          | PUT        | Update an existing hero by alias                   | `alias`, `power`, `universe` (in request body)               |
