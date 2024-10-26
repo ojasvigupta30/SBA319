@@ -31,13 +31,13 @@ This project is a Superhero Battle Management system built using **Node.js**, **
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/ojasvigupta30/SBA319.git
     ```
 
 2. Navigate into the project directory:
 
     ```bash
-    cd your-repo
+    cd SBA319
     ```
 
 3. Install all required dependencies:
@@ -61,7 +61,7 @@ This project is a Superhero Battle Management system built using **Node.js**, **
     npm start
     ```
 
-    The server should start on `http://localhost:5000`.
+    The server should start on `http://localhost:3000`.
 
 ## Routes
 
