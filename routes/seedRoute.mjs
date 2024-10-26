@@ -10,20 +10,20 @@ const router = express.Router();
 
 
 
-router.get(`/seed`, async (reqs, resp)=>{
+router.get(`/seed`, async (reqs, resp) => {
 
     //Optional step to erase the database first
     await Battle.deleteMany({});
     await Hero.deleteMany({});
     await Villain.deleteMany({});
-    
+
 
     //create items in database
-await Hero.create(heroes);
-await Villain.create(villains);
-await Battle.create(battles);
+    await Hero.create(heroes);
+    await Villain.create(villains);
+    await Battle.create(battles);
 
-resp.send(`Seeding Database`);
+    resp.send(`Seeding Database`);
 
 });
 

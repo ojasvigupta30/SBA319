@@ -85,5 +85,5 @@ const heroes = [
   }
 ]
 
-  
-  export default heroes;
+
+export default heroes;

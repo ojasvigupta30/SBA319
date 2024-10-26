@@ -6,7 +6,7 @@ import connectDB from './db/conn.mjs';
 import heroRoutes from './routes/heroRoutes.mjs';
 import villainRoutes from './routes/villainRoutes.mjs';
 import battleRoutes from './routes/battleRoutes.mjs';
-import seedRoutes from './routes/seedRoute.mjs';
+import seedRoute from './routes/seedRoute.mjs';
 
 
 //Setups
@@ -26,7 +26,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(`/hero`, heroRoutes);
 app.use(`/villain`, villainRoutes);
 app.use(`/battle`, battleRoutes);
-app.use(`/`, seedRoutes);
+app.use(`/`, seedRoute);
 
 
 //Listener

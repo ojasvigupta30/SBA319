@@ -89,4 +89,4 @@ const battles = [
   }
 ]
 
-  export default battles;
+export default battles;

@@ -4,27 +4,28 @@ import Hero from '../models/heroSchema.mjs';
 
 const router = express.Router();
 
-//CREATE
+//Validation Function
 function validateHero(reqs, resp, next) {
     const { alias, power, universe } = reqs.body;
-  
+
     // Check if required fields are provided
     if (!alias) {
-      return resp.status(400).json({ msg: 'Alias is required' });
+        return resp.status(400).json({ msg: 'Alias is required' });
     }
     if (!power) {
-      return resp.status(400).json({ msg: 'Power is required' });
+        return resp.status(400).json({ msg: 'Power is required' });
     }
     if (!universe || (universe !== 'Marvel' && universe !== 'DC')) {
-      return resp.status(400).json({ msg: 'Universe must be either Marvel or DC' });
+        return resp.status(400).json({ msg: 'Universe must be either Marvel or DC' });
     }
-  
+
     // If all validations pass, proceed to the next middleware/handler
     next();
-  }
+}
 
 
-router.post(`/`, validateHero, async (reqs,resp)=>{
+//CREATE
+router.post(`/`, validateHero, async (reqs, resp) => {
 
     try {
 
@@ -32,68 +33,68 @@ router.post(`/`, validateHero, async (reqs,resp)=>{
         await newHero.save();
         resp.json(newHero);
 
-        
+
     } catch (err) {
 
         console.error(err);
-        resp.status(500).json({msg: `Server Error`});
-        resp.status(500).json({msg: err.msg});
-        
+        resp.status(500).json({ msg: `Server Error` });
+        resp.status(500).json({ msg: err.msg });
+
     }
 
 });
 
 
 //READ
-router.get(`/`, async (reqs,resp)=>{
+router.get(`/`, async (reqs, resp) => {
 
     try {
 
         const allHeros = await Hero.find({});
         resp.json(allHeros);
-        
+
     } catch (err) {
 
         console.error(err);
-        resp.status(500).json({msg: `Server Error`});
-        
+        resp.status(500).json({ msg: `Server Error` });
+
     }
 
 });
 
 
 //UPDATE
-router.put(`/:alias`, validateHero, async (reqs,resp)=>{
+router.put(`/:alias`, validateHero, async (reqs, resp) => {
 
     try {
 
         let updatedHero = await Hero.findOneAndReplace({ alias: reqs.params.alias }, reqs.body, { new: true });
         resp.json(updatedHero);
-        
+
     } catch (err) {
 
         console.error(err);
-        resp.status(500).json({msg: `Server Error`});
-        resp.status(500).json({msg: err.msg});
-        
+        resp.status(500).json({ msg: `Server Error` });
+        resp.status(500).json({ msg: err.msg });
+
     }
 
 });
 
 
 //DELETE
-router.delete(`/:alias`, async (reqs,resp)=>{
+router.delete(`/:alias`, async (reqs, resp) => {
 
     try {
 
         await Hero.findOneAndDelete({ alias: reqs.params.alias });
-        resp.json({msg: `Hero ${reqs.params.alias} deleted`});
-        
+        resp.json({ msg: `Hero ${reqs.params.alias} deleted` });
+
     } catch (err) {
 
         console.error(err);
-        resp.status(500).json({msg: `Server Error`});
-        
+        resp.status(500).json({ msg: `Server Error` });
+
     }
 
 });

@@ -1,4 +1,4 @@
-const villains  = [
+const villains = [
   {
     "name": "Lex Luthor",
     "alias": "Lex",
@@ -86,4 +86,4 @@ const villains  = [
 ]
 
 
-  export default villains;
+export default villains;
