@@ -119,7 +119,7 @@ Example seed data for heroes, villains, and battles is included in the project. 
 
 ## Usage
 
-After starting the server, you can interact with the API using tools like **Postman** or **ThunderClient**. Here's an example of adding a new hero using Postman:
+After starting the server, you can interact with the API using tools like **Postman** or **ThunderClient**. Here's an example of adding a new hero using Thunderclient:
 
 - **POST /hero**
 
@@ -133,7 +133,7 @@ After starting the server, you can interact with the API using tools like **Post
   }
   ```
 
-     **Request Body (JSON):**
+     **Response (JSON):**
 
   ```json
     {
@@ -142,8 +142,6 @@ After starting the server, you can interact with the API using tools like **Post
   "power": "Spider Powers, Web Slinging",
   "universe": "Marvel",
   "archNemesis": null,
-  "createdAt": "2024-10-22T18:29:53.715Z",
-  "updatedAt": "2024-10-22T18:29:53.715Z",
   "__v": 0
     }
     ```
