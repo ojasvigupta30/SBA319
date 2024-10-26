@@ -49,7 +49,7 @@ This project is a Superhero Battle Management system built using **Node.js**, **
 4. Create a `.env` file in the root of your project and add the following:
 
     ```bash
-    PORT=5000
+    PORT=3000
     mongoURI=your-mongo-db-uri-here
     ```
 
