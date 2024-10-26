@@ -24,7 +24,8 @@ const heroSchema = new mongoose.Schema({
 
 });
 
-
+heroSchema.index({ alias: 1 }, { unique: true });  // Unique index on alias
+heroSchema.index({ universe: 1, archNemesis: 1 });  // Index on universe and arch-nemesis
 
 
 export default mongoose.model(`Hero`, heroSchema);

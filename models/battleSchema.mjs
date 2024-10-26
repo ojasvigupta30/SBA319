@@ -27,5 +27,7 @@ universe: { //Store the universe
 } 
 });
 
+battleSchema.index({ location: 1 });  // Index on location
+battleSchema.index({ universe: 1, heroes: 1, villains: 1 });  // Index on universe, heroes, and villains
 
 export default mongoose.model(`Battle`, battleSchema);

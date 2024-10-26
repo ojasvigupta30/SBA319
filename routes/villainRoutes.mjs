@@ -65,7 +65,7 @@ router.put(`/:alias`, validateVillain, async(reqs, resp)=>{
 
     try {
 
-        let updatedVillain = await Villain.findOneAndReplace({_alias: reqs.params.alias}, reqs.body, {new:true});
+        let updatedVillain = await Villain.findOneAndReplace({alias: reqs.params.alias}, reqs.body, {new:true});
         resp.json(updatedVillain);
 
         
@@ -86,7 +86,7 @@ router.delete(`/:alias`, async(reqs, resp)=>{
 
     try {
 
-        await Villain.findOneAndDelete({_alias: reqs.params.alias});
+        await Villain.findOneAndDelete({alias: reqs.params.alias});
         resp.json({msg: `Villain ${reqs.params.alias} deleted`});
         
     } catch (err) {

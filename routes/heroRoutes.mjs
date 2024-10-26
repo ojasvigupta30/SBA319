@@ -67,7 +67,7 @@ router.put(`/:alias`, validateHero, async (reqs,resp)=>{
 
     try {
 
-        let updatedHero = await Hero.findOneAndReplace({ _alias: reqs.params.alias }, reqs.body, { new: true });
+        let updatedHero = await Hero.findOneAndReplace({ alias: reqs.params.alias }, reqs.body, { new: true });
         resp.json(updatedHero);
         
     } catch (err) {
@@ -86,7 +86,7 @@ router.delete(`/:alias`, async (reqs,resp)=>{
 
     try {
 
-        await Hero.findOneAndDelete({ _alias: reqs.params.alias });
+        await Hero.findOneAndDelete({ alias: reqs.params.alias });
         resp.json({msg: `Hero ${reqs.params.alias} deleted`});
         
     } catch (err) {

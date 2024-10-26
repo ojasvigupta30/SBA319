@@ -26,5 +26,7 @@ universe: { //Store the universe
     
 });
 
+villainSchema.index({ alias: 1 }, { unique: true });  // Unique index on alias
+villainSchema.index({ universe: 1, archNemesis: 1 });  // Index on universe and arch-nemesis
 
 export default mongoose.model(`Villain`, villainSchema);
