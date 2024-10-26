@@ -5,7 +5,26 @@ import Hero from '../models/heroSchema.mjs';
 const router = express.Router();
 
 //CREATE
-router.post(`/`, async (reqs,resp)=>{
+function validateHero(reqs, resp, next) {
+    const { alias, power, universe } = reqs.body;
+  
+    // Check if required fields are provided
+    if (!alias) {
+      return resp.status(400).json({ msg: 'Alias is required' });
+    }
+    if (!power) {
+      return resp.status(400).json({ msg: 'Power is required' });
+    }
+    if (!universe || (universe !== 'Marvel' && universe !== 'DC')) {
+      return resp.status(400).json({ msg: 'Universe must be either Marvel or DC' });
+    }
+  
+    // If all validations pass, proceed to the next middleware/handler
+    next();
+  }
+
+
+router.post(`/`, validateHero, async (reqs,resp)=>{
 
     try {
 
@@ -18,6 +37,7 @@ router.post(`/`, async (reqs,resp)=>{
 
         console.error(err);
         resp.status(500).json({msg: `Server Error`});
+        resp.status(500).json({msg: err.msg});
         
     }
 
@@ -43,7 +63,7 @@ router.get(`/`, async (reqs,resp)=>{
 
 
 //UPDATE
-router.put(`/:alias`, async (reqs,resp)=>{
+router.put(`/:alias`, validateHero, async (reqs,resp)=>{
 
     try {
 
@@ -54,6 +74,7 @@ router.put(`/:alias`, async (reqs,resp)=>{
 
         console.error(err);
         resp.status(500).json({msg: `Server Error`});
+        resp.status(500).json({msg: err.msg});
         
     }
 

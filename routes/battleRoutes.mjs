@@ -5,7 +5,28 @@ import Battle from '../models/battleSchema.mjs';
 const router = express.Router();
 
 //CREATE
-router.post(`/`, async(reqs, resp)=>{
+function validateBattle(reqs, resp, next) {
+    const { location, date, outcome, universe } = reqs.body;
+  
+    // Check if required fields are provided
+    if (!location) {
+      return resp.status(400).json({ msg: 'Location is required' });
+    }
+    if (!date) {
+      return resp.status(400).json({ msg: 'Date is required' });
+    }
+    if (!outcome || (outcome !== `Heroes won` && outcome !== `Villains won`)) {
+        return resp.status(400).json({ msg: 'Outcome must be either Heroes won or Villains won ' });
+      }
+    if (!universe || (universe !== 'Marvel' && universe !== 'DC')) {
+      return resp.status(400).json({ msg: 'Universe must be either Marvel or DC' });
+    }
+  
+    // If all validations pass, proceed to the next middleware/handler
+    next();
+  }
+
+router.post(`/`, validateBattle, async(reqs, resp)=>{
 
 try {
     
@@ -18,6 +39,7 @@ try {
 
     console.error(err);
     resp.status(500).json({msg: `Server Error`});
+    resp.status(500).json({msg: err.msg});
     
 }    
 
@@ -42,7 +64,7 @@ router.get(`/`, async(reqs, resp)=>{
     })
 
 //UPADTE
-router.put(`/:heroes`, async(reqs, resp)=>{
+router.put(`/:heroes`, validateBattle, async(reqs, resp)=>{
 
     try {
         
@@ -54,6 +76,7 @@ router.put(`/:heroes`, async(reqs, resp)=>{
     
         console.error(err);
         resp.status(500).json({msg: `Server Error`});
+        resp.status(500).json({msg: err.msg});
         
     }    
     

@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 const heroSchema = new mongoose.Schema({
     name: { // Hero's name
-        type: String, 
-        required: [true, `Name is required`] 
+        type: String,  
     },  
     alias: { // Hero's alias
         type: String, 
